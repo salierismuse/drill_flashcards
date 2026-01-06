@@ -1,0 +1,306 @@
+.deck-editor {
+    min-height: 100vh;
+    padding: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.editor-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.back-btn {
+    flex-shrink: 0;
+}
+
+.deck-name-input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text-primary);
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.deck-name-input:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+.editor-actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+/* Add card form */
+.add-card-form {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.add-card-form h3 {
+    margin: 0 0 1rem;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.shortcut-hint {
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: var(--text-muted);
+    background: var(--bg-tertiary);
+    padding: 0.2rem 0.5rem;
+    border-radius: var(--radius-sm);
+}
+
+.card-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.input-group label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.input-group textarea {
+    padding: 0.75rem;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    font-family: inherit;
+    resize: vertical;
+}
+
+.input-group textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+.add-card-btn {
+    width: 100%;
+}
+
+/* Cards list */
+.cards-list {
+    margin-bottom: 2rem;
+}
+
+.cards-list h3 {
+    margin: 0 0 1rem;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+}
+
+.no-cards {
+    color: var(--text-secondary);
+    text-align: center;
+    padding: 2rem;
+    background: var(--bg-card);
+    border: 1px dashed var(--border);
+    border-radius: var(--radius);
+}
+
+.cards-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.card-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    transition: all var(--transition);
+}
+
+.card-item:hover {
+    border-color: var(--accent);
+}
+
+.card-number {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.card-preview {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    min-width: 0;
+}
+
+.card-side {
+    min-width: 0;
+}
+
+.side-label {
+    display: block;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-bottom: 0.25rem;
+}
+
+.card-text {
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    word-break: break-word;
+    line-height: 1.4;
+}
+
+.card-text code {
+    background: var(--bg-tertiary);
+    padding: 0.1em 0.3em;
+    border-radius: 3px;
+    font-size: 0.85em;
+}
+
+.card-actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+
+/* Card edit form inline */
+.card-edit-form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.card-edit-form .input-group textarea {
+    font-size: 0.9rem;
+}
+
+.edit-actions {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-end;
+}
+
+/* Modal variations */
+.modal-lg {
+    max-width: 600px;
+}
+
+.delimiter-input {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.delimiter-input label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.delimiter-input input {
+    width: 60px;
+    padding: 0.5rem;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+    text-align: center;
+    font-family: 'SF Mono', monospace;
+}
+
+.bulk-textarea {
+    width: 100%;
+    padding: 0.75rem;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    resize: vertical;
+    margin-bottom: 1rem;
+}
+
+.bulk-textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+.export-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.export-option {
+    width: 100%;
+    justify-content: flex-start;
+}
+
+@media (max-width: 640px) {
+    .editor-header {
+        flex-wrap: wrap;
+    }
+
+    .deck-name-input {
+        order: 3;
+        width: 100%;
+    }
+
+    .card-inputs {
+        grid-template-columns: 1fr;
+    }
+
+    .card-preview {
+        grid-template-columns: 1fr;
+    }
+
+    .card-item {
+        flex-wrap: wrap;
+    }
+
+    .card-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+}

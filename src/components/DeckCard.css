@@ -1,0 +1,128 @@
+.deck-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    transition: all var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.deck-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    opacity: 0;
+    transition: opacity var(--transition);
+}
+
+.deck-card:hover {
+    border-color: var(--border-light);
+    box-shadow: var(--shadow);
+}
+
+.deck-card:hover::before {
+    opacity: 0.6;
+}
+
+.deck-card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.deck-name {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    word-break: break-word;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.deck-card-count {
+    background: var(--bg-tertiary);
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.25rem 0.6rem;
+    border-radius: var(--radius-sm);
+    white-space: nowrap;
+    border: 1px solid var(--border);
+}
+
+.deck-modified {
+    margin: 0;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+.deck-card-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: auto;
+    padding-top: 0.5rem;
+}
+
+.deck-drill-btn {
+    width: 100%;
+}
+
+.deck-secondary-actions {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.btn-icon {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: all var(--transition);
+    font-size: 0.9rem;
+    color: var(--text-primary);
+}
+
+.btn-icon-svg {
+    width: 18px;
+    height: 18px;
+    stroke: currentColor;
+}
+
+.btn-icon:hover {
+    background: var(--bg-hover);
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.btn-icon-duplicate:hover {
+    background: rgba(59, 130, 246, 0.15);
+    /* Blue background tint */
+    border-color: #60a5fa;
+    /* Blue border */
+    color: #60a5fa;
+    /* Blue icon */
+}
+
+.btn-icon-danger:hover {
+    background: rgba(168, 107, 90, 0.15);
+    border-color: var(--danger);
+    color: var(--danger);
+}

@@ -1,0 +1,427 @@
+.drill-session {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 1rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.drill-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+}
+
+.drill-header::after {
+    content: '◇';
+    position: absolute;
+    bottom: -0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--bg-primary);
+    padding: 0 0.5rem;
+    color: var(--accent);
+    opacity: 0.5;
+    font-size: 0.7rem;
+}
+
+.drill-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.drill-title h1 {
+    margin: 0;
+    font-size: 1.75rem;
+    font-weight: 400;
+    color: var(--text-primary);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.active-deck-badge {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-secondary) 100%);
+    color: var(--bg-primary);
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.3rem 0.85rem;
+    border-radius: 999px;
+    letter-spacing: 0.05em;
+}
+
+.help-btn {
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    color: var(--text-secondary);
+    border-radius: var(--radius);
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.help-btn:hover {
+    background: var(--bg-hover);
+    color: var(--text-primary);
+}
+
+/* Three-deck layout */
+.drill-layout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    flex: 0 0 auto;
+    height: 350px;
+    margin: 1rem 0;
+}
+
+.drill-card-area {
+    flex: 0 1 600px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Mini deck displays on sides */
+.mini-deck {
+    width: 100px;
+    height: 140px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition);
+    position: relative;
+    flex-shrink: 0;
+}
+
+.mini-deck:hover {
+    border-color: var(--accent);
+    transform: scale(1.02);
+}
+
+.mini-deck.active {
+    border-color: var(--accent);
+    background: var(--accent-dim);
+}
+
+.mini-deck-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.mini-deck-count {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0.25rem 0;
+}
+
+.mini-deck-preview {
+    position: relative;
+    width: 50px;
+    height: 30px;
+}
+
+.mini-card {
+    position: absolute;
+    width: 50px;
+    height: 20px;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    left: 0;
+}
+
+.all-done {
+    text-align: center;
+    padding: 2rem;
+}
+
+.all-done h2 {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.all-done p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.drill-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.action-row {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+}
+
+.action-btn {
+    flex: 1;
+    max-width: 180px;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: var(--radius);
+    transition: all var(--transition);
+}
+
+.action-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.action-btn kbd {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 0.2rem 0.5rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    font-family: 'SF Mono', monospace;
+}
+
+.action-btn.got-it {
+    background: var(--success);
+    color: white;
+    border: none;
+}
+
+.action-btn.got-it:hover:not(:disabled) {
+    background: var(--success-hover);
+    transform: translateY(-2px);
+}
+
+.action-btn.missed {
+    background: var(--warning);
+    color: white;
+    border: none;
+}
+
+.action-btn.missed:hover:not(:disabled) {
+    background: var(--warning-hover);
+    transform: translateY(-2px);
+}
+
+.action-btn.side {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+}
+
+.action-btn.side:hover:not(:disabled) {
+    background: var(--bg-hover);
+    border-color: var(--accent);
+}
+
+.drill-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+}
+
+.deck-switcher {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.switcher-label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-right: 0.25rem;
+}
+
+.deck-switch-btn {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--radius);
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.deck-switch-btn:hover:not(:disabled) {
+    background: var(--bg-hover);
+    color: var(--text-primary);
+}
+
+.deck-switch-btn.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: white;
+}
+
+.deck-switch-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* Session start screen */
+.session-start {
+    max-width: 400px;
+    margin: auto;
+    text-align: center;
+    padding: 2rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+}
+
+.session-start h2 {
+    margin: 0 0 0.5rem;
+    font-size: 1.5rem;
+}
+
+.deck-info {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.session-name-input {
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+.session-name-input label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.session-name-input input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+.session-name-input input:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+.session-start-actions {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.session-start-actions .btn {
+    flex: 1;
+}
+
+/* Confirm dialog */
+.confirm-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.confirm-dialog {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    max-width: 360px;
+    width: 90%;
+    text-align: center;
+}
+
+.confirm-dialog h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.25rem;
+}
+
+.confirm-dialog p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.confirm-actions {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.confirm-actions .btn {
+    flex: 1;
+}
+
+@media (max-width: 640px) {
+    .drill-header {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .drill-layout {
+        gap: 0.5rem;
+    }
+
+    .mini-deck {
+        width: 60px;
+        height: 80px;
+    }
+
+    .mini-deck-count {
+        font-size: 1.1rem;
+    }
+
+    .mini-deck-preview {
+        display: none;
+    }
+
+    .action-row {
+        flex-direction: column;
+    }
+
+    .action-btn {
+        max-width: none;
+    }
+
+    .drill-footer {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .deck-switcher {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}

@@ -1,0 +1,357 @@
+/* Import Google Fonts - moved to top */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500&display=swap');
+
+/* Design System - Ancient Temple Theme */
+:root {
+  /* Colors - Dark theme (default) - Temple at dusk with sage greens */
+  --bg-primary: #0e1210;
+  --bg-secondary: #151a17;
+  --bg-card: #1a201c;
+  --bg-elevated: #212821;
+  --bg-tertiary: #283028;
+  --bg-hover: #323d32;
+
+  --border: #2d3a2e;
+  --border-light: #3d4f3e;
+  --border-ornate: #5a7a5c;
+
+  --text-primary: #e4ebe5;
+  --text-secondary: #a3b5a5;
+  --text-muted: #6b806d;
+
+  /* Sage/matcha accent */
+  --accent: #7a9a7c;
+  --accent-hover: #96b898;
+  --accent-dim: rgba(122, 154, 124, 0.15);
+  --accent-secondary: #5a7a5c;
+
+  /* Natural earth tones */
+  --success: #6b9a6b;
+  --success-hover: #5a8a5a;
+  --warning: #b89a6a;
+  --warning-hover: #a5885d;
+  --danger: #9a6b6b;
+  --danger-hover: #8a5c5c;
+
+  /* Sizing */
+  --radius-sm: 4px;
+  --radius: 8px;
+  --radius-lg: 12px;
+
+  /* Effects */
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.5);
+  --glow: 0 0 20px rgba(122, 154, 124, 0.15);
+
+  --transition: 0.3s ease;
+}
+
+/* Light theme - Morning temple */
+[data-theme="light"] {
+  --bg-primary: #f7f5f0;
+  --bg-secondary: #eeebe3;
+  --bg-card: #ffffff;
+  --bg-elevated: #ffffff;
+  --bg-tertiary: #e5e1d6;
+  --bg-hover: #dbd6c8;
+
+  --border: #d4cfc2;
+  --border-light: #c4bfb2;
+  --border-ornate: #a89a6c;
+
+  --text-primary: #2a2518;
+  --text-secondary: #5a5040;
+  --text-muted: #8a7e68;
+
+  --accent: #7d7254;
+  --accent-hover: #5a523a;
+
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Reset & Base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(ellipse at top, rgba(168, 154, 108, 0.03) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom, rgba(168, 154, 108, 0.02) 0%, transparent 50%);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Typography - ancient elegance */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  line-height: 1.2;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+h1 {
+  font-size: 2.25rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+
+/* Decorative elements */
+.ornament {
+  display: inline-block;
+  color: var(--accent);
+  opacity: 0.6;
+}
+
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-ornate), transparent);
+  margin: 2rem 0;
+}
+
+/* Card styling with ornate borders */
+.card-ornate {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.card-ornate::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0.5;
+}
+
+/* Button styles - weathered stone feel */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.4rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all var(--transition);
+  border: 1px solid transparent;
+  position: relative;
+  letter-spacing: 0.03em;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-secondary) 100%);
+  color: #1a1815;
+  border: none;
+  font-weight: 600;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: linear-gradient(135deg, var(--accent-hover) 0%, var(--accent) 100%);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow), var(--glow);
+}
+
+.btn-secondary {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  border-color: var(--border);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: var(--bg-hover);
+  border-color: var(--accent);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+}
+
+.btn-ghost:hover:not(:disabled) {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+.btn-danger {
+  background: var(--danger);
+  color: white;
+}
+
+.btn-danger:hover:not(:disabled) {
+  background: var(--danger-hover);
+}
+
+/* Focus states */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Scrollbar - subtle */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-light);
+}
+
+/* Selection */
+::selection {
+  background: var(--accent);
+  color: var(--bg-primary);
+}
+
+/* Decorative corner flourishes */
+.flourish-corner {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  opacity: 0.4;
+}
+
+.flourish-corner::before,
+.flourish-corner::after {
+  content: '';
+  position: absolute;
+  background: var(--accent);
+}
+
+.flourish-corner.top-left::before {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+}
+
+.flourish-corner.top-left::after {
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 100%;
+}
+
+.flourish-corner.top-right::before {
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 1px;
+}
+
+.flourish-corner.top-right::after {
+  top: 0;
+  right: 0;
+  width: 1px;
+  height: 100%;
+}
+
+.flourish-corner.bottom-left::before {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+}
+
+.flourish-corner.bottom-left::after {
+  bottom: 0;
+  left: 0;
+  width: 1px;
+  height: 100%;
+}
+
+.flourish-corner.bottom-right::before {
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 1px;
+}
+
+.flourish-corner.bottom-right::after {
+  bottom: 0;
+  right: 0;
+  width: 1px;
+  height: 100%;
+}
+
+/* Subtle texture overlay */
+.textured {
+  position: relative;
+}
+
+.textured::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  opacity: 0.02;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
