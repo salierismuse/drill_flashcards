@@ -5,7 +5,7 @@ A focused, offline-first flashcard application designed for rapid knowledge acqu
 ## Features
 
 - **Drill Mode**: Rapid-fire review with keyboard shortcuts (Space to flip, 1/2/3/4 for grading).
-- **Spaced Repetition**: Manages card frequency based on your performance.
+- **Session Reentry**: Automatically re-queues missed cards during the session for immediate reinforcement.
 - **Deck Management**: Create, edit, duplicate, and delete decks easily.
 - **Rich Text Support**: Cards support Markdown rendering.
 - **Session History**: Track your study performance over time.
