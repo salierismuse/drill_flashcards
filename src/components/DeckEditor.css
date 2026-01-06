@@ -116,6 +116,14 @@
     color: var(--text-primary);
 }
 
+.formatting-hint {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: -0.5rem;
+    margin-bottom: 1rem;
+    font-family: monospace;
+}
+
 .no-cards {
     color: var(--text-secondary);
     text-align: center;

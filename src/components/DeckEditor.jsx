@@ -172,6 +172,7 @@ export default function DeckEditor({ deck, onBack, onDrill }) {
 
             <div className="add-card-form">
                 <h3>Add New Card <span className="shortcut-hint">Shift+Enter to submit</span></h3>
+                <p className="formatting-hint">Supports: **bold**, *italic*, ^sup^, ~sub~</p>
                 <div className="card-inputs">
                     <div className="input-group">
                         <label>Front (Question)</label>

@@ -17,6 +17,12 @@ export function renderMarkdown(text) {
     // Inline code: `code`
     html = html.replace(/`(.+?)`/g, '<code>$1</code>');
 
+    // Superscript: ^text^
+    html = html.replace(/\^(.+?)\^/g, '<sup>$1</sup>');
+
+    // Subscript: ~text~
+    html = html.replace(/~(.+?)~/g, '<sub>$1</sub>');
+
     // Line breaks
     html = html.replace(/\n/g, '<br>');
 

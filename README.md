@@ -7,7 +7,7 @@ A focused, offline-first flashcard application designed for rapid knowledge acqu
 - **Drill Mode**: Rapid-fire review with keyboard shortcuts (Space to flip, 1/2/3/4 for grading).
 - **Session Reentry**: Automatically re-queues missed cards during the session for immediate reinforcement.
 - **Deck Management**: Create, edit, duplicate, and delete decks easily.
-- **Rich Text Support**: Cards support Markdown rendering.
+- **Rich Text Support**: Markdown rendering (including chem formulas: `H~2~O` → H₂O, `X^2^` → X²).
 - **Session History**: Track your study performance over time.
 - **Import/Export**: Share decks via JSON or CSV.
 - **Portable**: runs as a standalone executable on Windows.
