@@ -1,0 +1,50 @@
+.cropper-overlay {
+    z-index: 2000;
+}
+
+.cropper-modal {
+    width: 90vw;
+    max-width: 800px;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.cropper-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.cropper-hints {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    display: flex;
+    gap: 1rem;
+}
+
+.cropper-container {
+    flex: 1;
+    background: #000;
+    overflow: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+}
+
+/* Override standard ReactCrop styles to match theme */
+.ReactCrop__crop-selection {
+    border: 2px solid var(--accent);
+    box-shadow: 0 0 0 9999em rgba(0, 0, 0, 0.7);
+}
+
+.ReactCrop--circular-crop .ReactCrop__crop-selection {
+    border-radius: 50%;
+}
+
+img {
+    max-width: 100%;
+}
