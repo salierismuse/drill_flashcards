@@ -50,6 +50,31 @@ export default function DeckEditor({ deck, onBack, onDrill }) {
         }
     };
 
+    const handlePaste = async (e, setFunction, currentVal) => {
+        const items = e.clipboardData?.items;
+        if (!items) return;
+
+        for (const item of items) {
+            if (item.type.indexOf('image') !== -1) {
+                e.preventDefault();
+                const blob = item.getAsFile();
+                if (!blob) continue;
+
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    const base64 = event.target.result;
+                    const cursorPosition = e.target.selectionStart;
+                    const textBefore = currentVal.substring(0, cursorPosition);
+                    const textAfter = currentVal.substring(e.target.selectionEnd);
+                    const newText = `${textBefore}\n![image](${base64})\n${textAfter}`;
+                    setFunction(newText);
+                };
+                reader.readAsDataURL(blob);
+                return; // Stop after first image
+            }
+        }
+    };
+
     const handleUpdateCard = (cardId, front, back) => {
         const updated = {
             ...editedDeck,
@@ -181,6 +206,7 @@ export default function DeckEditor({ deck, onBack, onDrill }) {
                             value={newCardFront}
                             onChange={(e) => setNewCardFront(e.target.value)}
                             onKeyDown={handleKeyDown}
+                            onPaste={(e) => handlePaste(e, setNewCardFront, newCardFront)}
                             placeholder="Enter question or prompt..."
                             rows={3}
                         />
@@ -191,6 +217,7 @@ export default function DeckEditor({ deck, onBack, onDrill }) {
                             value={newCardBack}
                             onChange={(e) => setNewCardBack(e.target.value)}
                             onKeyDown={handleKeyDown}
+                            onPaste={(e) => handlePaste(e, setNewCardBack, newCardBack)}
                             placeholder="Enter answer..."
                             rows={3}
                         />
@@ -219,6 +246,7 @@ export default function DeckEditor({ deck, onBack, onDrill }) {
                                         card={card}
                                         onSave={(front, back) => handleUpdateCard(card.id, front, back)}
                                         onCancel={() => setEditingCard(null)}
+                                        handlePaste={handlePaste}
                                     />
                                 ) : (
                                     <>
@@ -327,7 +355,7 @@ export default function DeckEditor({ deck, onBack, onDrill }) {
     );
 }
 
-function CardEditForm({ card, onSave, onCancel }) {
+function CardEditForm({ card, onSave, onCancel, handlePaste }) {
     const [front, setFront] = useState(card.front);
     const [back, setBack] = useState(card.back);
 
@@ -338,6 +366,7 @@ function CardEditForm({ card, onSave, onCancel }) {
                 <textarea
                     value={front}
                     onChange={(e) => setFront(e.target.value)}
+                    onPaste={(e) => handlePaste(e, setFront, front)}
                     rows={2}
                     autoFocus
                 />
@@ -347,6 +376,7 @@ function CardEditForm({ card, onSave, onCancel }) {
                 <textarea
                     value={back}
                     onChange={(e) => setBack(e.target.value)}
+                    onPaste={(e) => handlePaste(e, setBack, back)}
                     rows={2}
                 />
             </div>

@@ -23,6 +23,9 @@ export function renderMarkdown(text) {
     // Subscript: ~text~
     html = html.replace(/~(.+?)~/g, '<sub>$1</sub>');
 
+    // Images: ![alt](url)
+    html = html.replace(/!\[(.*?)\]\((.*?)\)/g, '<img src="$2" alt="$1" style="max-width: 100%; border-radius: 8px;">');
+
     // Line breaks
     html = html.replace(/\n/g, '<br>');
 
